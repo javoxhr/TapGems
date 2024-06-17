@@ -1,3 +1,11 @@
-h1 {
-    color: blue;
+@media (hover: hover) {
+    button:hover {
+        background-color: red;
+    }
+}
+
+@media (hover: none) {
+    button:active {
+        background-color: red;
+    }
 }
