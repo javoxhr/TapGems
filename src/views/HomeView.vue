@@ -5,6 +5,12 @@
       <h1 class="gems">💎</h1>
     </div>
 
+    <div class="limit">
+      <span>
+        <span></span>
+      </span>
+    </div>
+
     <top>
       <div class="container">
          <div class="header-wrapper">
@@ -17,7 +23,7 @@
     <div class="coin-tap">
       <div class="container">
         <div class="coin-wrapper">
-          <div class="coin-rount">
+          <div class="coin-rount" @click="addTotal()">
             <button class="coin">💎</button>
           </div>
         </div>
@@ -27,7 +33,12 @@
 </template>
 
 <script setup>
-let total = 0
+ import { ref } from 'vue';
+ const total = ref(10)
+ 
+ function addTotal() {
+  total.value += 1
+ }
 </script>
 
 <style>
