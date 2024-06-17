@@ -11,19 +11,19 @@
       </span>
     </div>
 
-    <top>
+    <div class="top">
       <div class="container">
-         <div class="header-wrapper">
-            <h1 class="header-wrapper__balans">{{ total }} G</h1>
-            <h2 class="header-wrapper__text">Ваше монеты</h2>
-         </div>
-       </div>
-    </top>
+        <div class="header-wrapper">
+          <h1 class="header-wrapper__balance">{{ total }} G</h1>
+          <h2 class="header-wrapper__text">Ваши монеты</h2>
+        </div>
+      </div>
+    </div>
 
     <div class="coin-tap">
       <div class="container">
         <div class="coin-wrapper">
-          <div class="coin-rount" @click="addTotal()">
+          <div class="coin-round" @click="addTotal()">
             <button class="coin">💎</button>
           </div>
         </div>
@@ -33,34 +33,25 @@
 </template>
 
 <script setup>
- import { ref } from 'vue';
+import { ref } from 'vue';
 
- const total = ref(10)
- 
- function addTotal() {
-  total.value += 1
- }
-
+const total = ref(10);
 const isZoomed = ref(false);
-const lastClickTime = ref(0);
-const debounceTime = 300;
 
-  const handleDoubleClick = () => {
-    const currentTime = new Date().getTime();
+function addTotal() {
+  total.value += 1;
+}
 
-    if (currentTime - lastClickTime.value < debounceTime) {
-      return;
-    }
+const disableZoom = (e) => {
+  e.preventDefault();
+};
 
-  toggleZoom();
-    lastClickTime.value = currentTime;
-  };
-
-  const toggleZoom = () => {
-    isZoomed.value = !isZoomed.value;
-  };
+// Добавляем обработчики событий для предотвращения масштабирования
+document.addEventListener('gesturestart', disableZoom);
+document.addEventListener('gesturechange', disableZoom);
+document.addEventListener('gestureend', disableZoom);
 </script>
 
-<style>
+<style scoped>
 
 </style>
