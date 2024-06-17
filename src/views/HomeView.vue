@@ -1,5 +1,5 @@
 <template>
-  <main class="content" :class="{ zoomed: isZoomed }">
+  <main class="content">
     <div class="time-open">
       <h1>Совсем скоро</h1>
       <h1 class="gems">💎</h1>
@@ -23,8 +23,8 @@
     <div class="coin-tap">
       <div class="container">
         <div class="coin-wrapper">
-          <div class="coin-round" @click="addTotal()">
-            <button class="coin">💎</button>
+          <div class="coin-round">
+            <button class="coin" @click="addTotal()">💎</button>
           </div>
         </div>
       </div>
@@ -36,22 +36,30 @@
 import { ref } from 'vue';
 
 const total = ref(10);
-const isZoomed = ref(false);
 
 function addTotal() {
-  total.value += 1;
+  total.value += 1; // Увеличение значения total на 1 при каждом клике
 }
-
-const disableZoom = (e) => {
-  e.preventDefault();
-};
-
-// Добавляем обработчики событий для предотвращения масштабирования
-document.addEventListener('gesturestart', disableZoom);
-document.addEventListener('gesturechange', disableZoom);
-document.addEventListener('gestureend', disableZoom);
 </script>
 
 <style scoped>
+.content {
+  width: 100%;
+  height: 100%;
+  background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
+.top {
+  margin-top: 20px;
+}
+
+.coin {
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+}
 </style>
