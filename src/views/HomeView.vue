@@ -59,11 +59,6 @@ const debounceTime = 300;
   const toggleZoom = () => {
     isZoomed.value = !isZoomed.value;
   };
-
-  return {
-    isZoomed,
-    handleDoubleClick
-  };
 </script>
 
 <style>
