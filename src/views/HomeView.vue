@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="content" :class="{ zoomed: isZoomed }">
     <div class="time-open">
       <h1>Совсем скоро</h1>
       <h1 class="gems">💎</h1>
@@ -34,11 +34,36 @@
 
 <script setup>
  import { ref } from 'vue';
+
  const total = ref(10)
  
  function addTotal() {
   total.value += 1
  }
+
+const isZoomed = ref(false);
+const lastClickTime = ref(0);
+const debounceTime = 300;
+
+  const handleDoubleClick = () => {
+    const currentTime = new Date().getTime();
+
+    if (currentTime - lastClickTime.value < debounceTime) {
+      return;
+    }
+
+  toggleZoom();
+    lastClickTime.value = currentTime;
+  };
+
+  const toggleZoom = () => {
+    isZoomed.value = !isZoomed.value;
+  };
+
+  return {
+    isZoomed,
+    handleDoubleClick
+  };
 </script>
 
 <style>
