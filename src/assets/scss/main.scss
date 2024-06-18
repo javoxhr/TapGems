@@ -51,15 +51,26 @@ body {
 
 .time-open {
     position: fixed;
+    z-index: 3;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: #000;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     gap: 5px;
+}
+
+.overlay {
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.30);
 }
 
 .gems {
@@ -97,6 +108,14 @@ body {
         font-weight: 400;
         font-size: 12px;
     }
+}
+
+top {
+    position: relative;
+}
+
+.coin-tap {
+    position: relative;
 }
 
 .coin-wrapper {

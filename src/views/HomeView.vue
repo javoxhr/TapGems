@@ -1,5 +1,6 @@
 <template>
-  <main class="content" :class="{ zoomed: isZoomed }">
+  <main class="content">
+    <div class="overlay"></div>
     <div class="time-open">
       <h1>Совсем скоро</h1>
       <h1 class="gems">💎</h1>
@@ -35,7 +36,7 @@
 <script setup>
  import { ref } from 'vue';
 
- const total = ref(10)
+ const total = ref(0)
  
  function addTotal() {
   total.value += 1
