@@ -15,7 +15,7 @@
       <div class="container">
          <div class="header-wrapper">
             <h1 class="header-wrapper__balans">{{ total }} G</h1>
-            <h2 class="header-wrapper__text">Ваше монеты</h2>
+            <h2 class="header-wrapper__text">Ваши монеты</h2>
          </div>
        </div>
     </top>
