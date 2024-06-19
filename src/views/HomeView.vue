@@ -22,7 +22,6 @@
             <span class="cash">{{ coin }}</span>
             G
           </h1>
-          <h2 class="header-wrapper__text">Ваши монеты</h2>
         </div>
       </div>
     </top>
