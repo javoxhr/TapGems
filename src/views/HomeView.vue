@@ -31,7 +31,7 @@
       <div class="container">
         <div class="coin-wrapper">
           <div class="coin-rount" @click="addTotal()">
-            <button class="coin">💎</button>
+            <button class="coin"><img class="rubiy" src="../assets/images/599608.png" alt=""></button>
           </div>
         </div>
       </div>
@@ -59,5 +59,10 @@
     font-weight: 400;
     font-size: 30px;
     margin-top: 12px;
+  }
+
+  .rubiy {
+    display: flex;
+    width: 180px;
   }
 </style>
