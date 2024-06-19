@@ -48,14 +48,6 @@
  
  function addTotal() {
   total.value += 1
-  if(total.value >= 10) {
-    total.value = 0
-    centerCoin.value += 1
-    if(centerCoin.value >= 10) {
-      centerCoin.value = 0
-      coin.value += 1
-    }
-  }
  }
 </script>
 
@@ -66,8 +58,6 @@
   .zap {
     font-weight: 400;
     font-size: 30px;
-    position: absolute;
-    left: 27px;
-    top: 20px;
+    margin-top: 12px;
   }
 </style>
