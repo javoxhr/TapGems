@@ -1,6 +1,6 @@
 <template>
   <div class="overlay"></div>
-  <div class="loader" :style="{'display': show == true ? 'flex' : 'none'}">
+  <div class="loader" :style="{'display': show == true ? 'none' : 'none'}">
     <span class="loading"></span>
     <span class="loading"></span>
     <span class="loading"></span>
