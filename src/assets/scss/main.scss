@@ -122,15 +122,15 @@ body {
 }
 
 .after-balans {
-  animation: blansAnim .5s forwards;
+  animation: blansAnim .8s forwards;
 }
 
 @keyframes blansAnim {
     0% {
-        top: -30px;
+       top: -30px;
     }
     50% {
-        top: -35px;
+        top: -40px;
     }
     100%{
         top: -30px;
