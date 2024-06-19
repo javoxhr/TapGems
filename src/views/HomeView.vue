@@ -55,7 +55,7 @@ function intervalFunc() {
   } else {
     calc.value += 2
   }
- }, 1000)
+ }, 2000)
 }
 
  function addTotal() {
