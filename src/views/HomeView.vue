@@ -1,5 +1,11 @@
 <template>
   <div class="overlay"></div>
+  <div class="loader" :style="{'display': show == true ? 'flex' : 'none'}">
+    <span class="loading"></span>
+    <span class="loading"></span>
+    <span class="loading"></span>
+    <span class="loading"></span>
+  </div>
   <main class="content">
     <div class="time-open">
       <h1>Совсем скоро</h1>
@@ -57,6 +63,13 @@ const coin = ref(0);
 const centerCoin = ref(0);
 
 const calc = ref(300);
+
+let show = ref(true)
+
+setTimeout(()=> {
+  console.log('hello world')
+  show.value = false
+}, 2000)
 
 function addTotal() {
   if (calc.value >= 0) {
