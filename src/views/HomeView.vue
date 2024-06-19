@@ -39,6 +39,8 @@
           <img src="../assets/images/energiy.svg" alt="" />
         </button>
         <h1 class="limit-text">{{ calc }}</h1>
+        <h3 class="slash">/</h3>
+        <h1 class="limit-text">300</h1>
       </div>
       <span>
         <span :style="{ width: calc + 'px' }"></span>
@@ -94,5 +96,10 @@ onMounted(() => {
 .limit-text {
   font-weight: 400;
   font-size: 16px;
+}
+.slash {
+  font-weight: 400;
+  font-size: 18px;
+  padding: 0 3px;
 }
 </style>

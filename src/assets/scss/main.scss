@@ -111,10 +111,24 @@ body {
         align-items: center;
         gap: 2px;
         position: relative;
+        transition: all .5s ease;
     }
     &__text {
         font-weight: 400;
         font-size: 12px;
+    }
+}
+
+.afterBalns {
+    animation: balansAnim .5s forwards;
+}
+
+@keyframes balansAnim {
+    0% {
+        margin-bottom: 20px;
+    }
+    100% {
+        margin-bottom: 0;
     }
 }
 
