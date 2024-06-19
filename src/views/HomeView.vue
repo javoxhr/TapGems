@@ -56,30 +56,25 @@ const centerCoin = ref(0);
 
 const calc = ref(300);
 
-function intervalFunc() {
-  setInterval(() => {
-    if (calc.value == 300) {
-      calc.value = 300;
-    } else {
-      calc.value += 2;
-    }
-  }, 1000);
-}
-
 function addTotal() {
   if (calc.value >= 0) {
     total.value += 1;
-  } else if (calc.value <= 0) {
-    intervalFunc();
-    console.log("hello");
   } else {
+    console.log("hello");
     total.value += 0;
   }
-  localStorage.setItem("count", total.value)
+  localStorage.setItem("count", total.value);
 }
-onMounted(()=> {
-  total.value = localStorage.getItem("count") ? Number(localStorage.getItem("count")) : 0
-})
+onMounted(() => {
+  total.value = localStorage.getItem("count")
+    ? Number(localStorage.getItem("count"))
+    : 0;
+  setInterval(() => {
+    if (calc.value !== 300 || calc.value < 300) {
+      calc.value += 5;
+    }
+  }, 1500);
+});
 </script>
 
 <style lang="scss" scoped>
