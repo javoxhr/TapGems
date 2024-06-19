@@ -58,9 +58,6 @@ function intervalFunc() {
  }, 1000)
 }
 
-intervalFunc()
-
- 
  function addTotal() {
   if(calc.value >= 0) {
     total.value += 1
@@ -69,6 +66,7 @@ intervalFunc()
     intervalFunc()
   }
  }
+ intervalFunc()
 </script>
 
 <style lang="scss" scoped>
