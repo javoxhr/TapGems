@@ -110,12 +110,30 @@ body {
         display: flex;
         align-items: center;
         gap: 2px;
-        position: relative;
         transition: all .5s ease;
+        position: absolute;
+        top: -30px;
+
     }
     &__text {
         font-weight: 400;
         font-size: 12px;
+    }
+}
+
+.after-balans {
+  animation: blansAnim .5s forwards;
+}
+
+@keyframes blansAnim {
+    0% {
+        top: -30px;
+    }
+    50% {
+        top: -35px;
+    }
+    100%{
+        top: -30px;
     }
 }
 

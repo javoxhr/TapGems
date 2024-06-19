@@ -15,7 +15,7 @@
     <top>
       <div class="container">
         <div class="header-wrapper">
-          <h1 class="header-wrapper__balans">
+          <h1 class="header-wrapper__balans" :class="{'after-balans': show == true}"  >
             <span class="total">{{ total }}</span>
             <span class="zap">.</span>
             <span>{{ centerCoin }}</span>
@@ -29,7 +29,7 @@
     <div class="coin-tap">
       <div class="container">
         <div class="coin-wrapper">
-          <div class="coin-rount" @click="addTotal(), (calc -= 5)">
+          <div class="coin-rount" @click="addTotal(), showFunc(),  (calc -= 5)">
             <button class="coin">
               <img class="rubiy" src="../assets/images/rubiy-coin.png" alt="">
             </button>
@@ -63,12 +63,17 @@ const centerCoin = ref(0);
 
 const calc = ref(300);
 
-let show = ref(true)
+let show = ref(false)
 
-setTimeout(()=> {
-  console.log('hello world')
-  show.value = false
-}, 2000)
+
+function showFunc() {
+  show.value = !show.value
+}
+
+// setTimeout(()=> {
+//   console.log('hello world')
+//   show.value = false
+// }, 2000)
 
 function addTotal() {
   if (calc.value >= 0) {
@@ -85,7 +90,7 @@ onMounted(() => {
     : 0;
   setInterval(() => {
     if (calc.value !== 300 || calc.value < 300) {
-      calc.value += 5;
+       calc.value += 5;
     }
   }, 1500);
 });
