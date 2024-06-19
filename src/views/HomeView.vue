@@ -17,9 +17,8 @@
          <div class="header-wrapper">
             <h1 class="header-wrapper__balans">
               <span class="total">{{ total }}</span>
-              <span :style="{'display': total >= 10 ? 'none' : 'block'}">0</span>
-              <span :style="{'display': total >= 100 ? 'none' : 'block'}">0</span>
               <span class="zap">.</span>
+              <span>{{ centerCoin }}</span>
               <span class="cash">{{ coin }}</span>
               G
             </h1>
@@ -44,14 +43,18 @@
  import { ref } from 'vue';
 
  const total = ref(0)
-
  const coin = ref(0)
+ const centerCoin = ref(0)
  
  function addTotal() {
   total.value += 1
-  if(total.value >= 1000) {
+  if(total.value >= 10) {
     total.value = 0
     coin.value += 1
+    if(coin.value >= 10) {
+      coin.value = 0
+      centerCoin.value += 1
+    }
   }
  }
 </script>
@@ -64,11 +67,7 @@
     font-weight: 400;
     font-size: 30px;
     position: absolute;
-    left: 98px;
+    left: 27px;
     top: 20px;
-  }
-
-  .cash {
-    margin-left: 10px;
   }
 </style>
