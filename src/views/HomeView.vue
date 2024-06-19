@@ -6,12 +6,6 @@
       <h1 class="gems">💎</h1>
     </div>
 
-    <div class="limit">
-      <span>
-        <span></span>
-      </span>
-    </div>
-
     <top>
       <div class="container">
          <div class="header-wrapper">
@@ -30,11 +24,17 @@
     <div class="coin-tap">
       <div class="container">
         <div class="coin-wrapper">
-          <div class="coin-rount" @click="addTotal()">
+          <div class="coin-rount" @click="addTotal(), calc -= 5">
             <button class="coin"><img class="rubiy" src="../assets/images/599608.png" alt=""></button>
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="limit">
+      <span>
+        <span :style="{'width': calc + 'px'}"></span>
+      </span>
     </div>
   </main>
 </template>
@@ -45,9 +45,29 @@
  const total = ref(0)
  const coin = ref(0)
  const centerCoin = ref(0)
+
+ const calc = ref(300)
+
+function intervalFunc() {
+  setInterval(()=> {
+  if(calc.value == 300) {
+    calc.value = 300
+  } else {
+    calc.value += 2
+  }
+ }, 1000)
+}
+
+intervalFunc()
+
  
  function addTotal() {
-  total.value += 1
+  if(calc.value >= 0) {
+    total.value += 1
+  } else {
+    total.value += 0
+    intervalFunc()
+  }
  }
 </script>
 
