@@ -15,7 +15,12 @@
     <top>
       <div class="container">
          <div class="header-wrapper">
-            <h1 class="header-wrapper__balans">{{ total }} G</h1>
+            <h1 class="header-wrapper__balans">
+              <span :style="{'display': total >= 1000 ? 'none' : 'block'}">0</span>
+              <span class="zap">,</span>
+              <span :style="{'display': total >= 100 ? 'none' : 'block'}">0</span>
+              <span :style="{'display': total >= 10 ? 'none': 'block'}">0</span> 
+              <span class="total">{{ total }}</span> G</h1>
             <h2 class="header-wrapper__text">Ваши монеты</h2>
          </div>
        </div>
@@ -43,6 +48,15 @@
  }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+  .total {
+    letter-spacing: 5px;
+  }
+  .zap {
+    font-weight: 400;
+    font-size: 30px;
+    position: absolute;
+    left: 22px;
+    top: 20px;
+  }
 </style>
