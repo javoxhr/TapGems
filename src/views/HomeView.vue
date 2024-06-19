@@ -50,10 +50,10 @@
   total.value += 1
   if(total.value >= 10) {
     total.value = 0
-    coin.value += 1
-    if(coin.value >= 10) {
-      coin.value = 0
-      centerCoin.value += 1
+    centerCoin.value += 1
+    if(centerCoin.value >= 10) {
+      centerCoin.value = 0
+      coin.value += 1
     }
   }
  }
