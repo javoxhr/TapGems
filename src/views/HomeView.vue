@@ -26,7 +26,7 @@
         <div class="coin-wrapper">
           <div class="coin-rount" @click="addTotal(), (calc -= 5)">
             <button class="coin">
-              <img class="rubiy" src="../assets/images/ruby-purpl.png" alt="" />
+              <!-- <img class="rubiy" src="../assets/images/ruby-purpl.png" alt="" /> -->
             </button>
           </div>
         </div>
@@ -36,7 +36,7 @@
     <div class="limit">
       <div class="limit-wrap">
         <button class="energiya">
-          <img src="../assets/images/energiy.svg" alt="" />
+          <!-- <img src="../assets/images/energiy.svg" alt="" /> -->
         </button>
         <h1 class="limit-text">{{ calc }}</h1>
       </div>
