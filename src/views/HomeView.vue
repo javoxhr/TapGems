@@ -26,7 +26,7 @@
         <div class="coin-wrapper">
           <div class="coin-rount" @click="addTotal(), (calc -= 5)">
             <button class="coin">
-              <img class="rubiy" src="../assets/images/IMG_5641.PNG" alt="">
+              <img class="rubiy" src="../assets/images/rubiy-coin.png" alt="">
             </button>
           </div>
         </div>
