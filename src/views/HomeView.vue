@@ -36,7 +36,7 @@
     <div class="limit">
       <div class="limit-wrap">
         <button class="energiya">
-          <!-- <img src="../assets/images/energiy.svg" alt="" /> -->
+          <img src="../assets/images/energiy.svg" alt="" />
         </button>
         <h1 class="limit-text">{{ calc }}</h1>
       </div>
