@@ -69,7 +69,7 @@ function showFunc() {
 
 function vibrate() {
   if (navigator.vibrate) {
-    navigator.vibrate(200); // Вибрация на 200 мс
+    navigator.vibrate(500); // Вибрация на 200 мс
   } else {
     console.log('Вибрация не поддерживается этим устройством.');
   }
