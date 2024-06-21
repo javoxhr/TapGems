@@ -29,7 +29,7 @@
     <div class="coin-tap">
       <div class="container">
         <div class="coin-wrapper">
-          <div class="coin-rount" @click="addTotal(), showFunc(), vibrate(), (calc -= 5)">
+          <div class="coin-rount" @click="addTotal(), showFunc(), vibrate, (calc -= 5)">
             <button class="coin">
               <img class="rubiy" src="../assets/images/rubiy-coin.png" alt="">
             </button>
@@ -73,6 +73,7 @@ function showFunc() {
 function vibrate() {
   if("vibrate" in navigator) {
     navigator.vibrate([100, 50, 100, 50, 100])
+    console.log('hello world')
   } else {
     console.log('Вибрация не поддерживается этим устройством.')
   }
