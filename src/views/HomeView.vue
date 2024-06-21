@@ -15,7 +15,7 @@
     <top>
       <div class="container">
         <div class="header-wrapper">
-          <h1 class="header-wrapper__balans" :class="{'after-balans': show == true}">
+          <h1 class="header-wrapper__balans" :class="{'after-balans': show == true}"  >
             <span class="total">{{ total }}</span>
             <span class="zap">.</span>
             <span>{{ centerCoin }}</span>
@@ -29,7 +29,7 @@
     <div class="coin-tap">
       <div class="container">
         <div class="coin-wrapper">
-          <div class="coin-rount" @click="handleCoinClick">
+          <div class="coin-rount" @click="addTotal(), showFunc(), vibrate, (calc -= 5)">
             <button class="coin">
               <img class="rubiy" src="../assets/images/rubiy-coin.png" alt="">
             </button>
@@ -55,23 +55,27 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted } from "vue";
 
 const total = ref(0);
 const coin = ref(0);
 const centerCoin = ref(0);
+
 const calc = ref(300);
-let show = ref(false);
+
+let show = ref(false)
+
 
 function showFunc() {
-  show.value = !show.value;
+  show.value = !show.value
 }
 
 function vibrate() {
-  if (navigator.vibrate) {
-    navigator.vibrate(500); // Вибрация на 200 мс
+  if(vibrate.navigator) {
+    navigator.vibrate(200)
+    console.log('hello world')
   } else {
-    console.log('Вибрация не поддерживается этим устройством.');
+    console.log('Вибрация не поддерживается этим устройством.')
   }
 }
 
@@ -79,26 +83,18 @@ function addTotal() {
   if (calc.value >= 0) {
     total.value += 1;
   } else {
-    console.log('hello');
+    console.log("hello");
     total.value += 0;
   }
-  localStorage.setItem('count', total.value);
+  localStorage.setItem("count", total.value);
 }
-
-function handleCoinClick() {
-  addTotal();
-  showFunc();
-  vibrate();
-  calc.value -= 5;
-}
-
 onMounted(() => {
-  total.value = localStorage.getItem('count')
-    ? Number(localStorage.getItem('count'))
+  total.value = localStorage.getItem("count")
+    ? Number(localStorage.getItem("count"))
     : 0;
   setInterval(() => {
     if (calc.value !== 300 || calc.value < 300) {
-      calc.value += 5;
+       calc.value += 5;
     }
   }, 1500);
 });
@@ -113,6 +109,7 @@ onMounted(() => {
   font-size: 30px;
   margin-top: 12px;
 }
+
 .rubiy {
   display: flex;
   width: 180px;
