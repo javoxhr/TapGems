@@ -71,8 +71,8 @@ function showFunc() {
 }
 
 function vibrate() {
-  if("vibrate" in navigator) {
-    navigator.vibrate([100, 50, 100, 50, 100])
+  if(vibrate.navigator) {
+    navigator.vibrate(200)
     console.log('hello world')
   } else {
     console.log('Вибрация не поддерживается этим устройством.')
