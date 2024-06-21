@@ -29,7 +29,10 @@
     <div class="coin-tap">
       <div class="container">
         <div class="coin-wrapper">
-          <div class="coin-rount" @click="addTotal(), showFunc(), vibrate, (calc -= 5)">
+          <div class="coin-rount" @click="clickFunc">
+            <audio ref="audioElement">
+              <source src="/IMG_5651.mp3" type="audio/mpeg">
+            </audio>
             <button class="coin">
               <img class="rubiy" src="../assets/images/rubiy-coin.png" alt="">
             </button>
@@ -64,6 +67,22 @@ const centerCoin = ref(0);
 const calc = ref(300);
 
 let show = ref(false)
+
+const audioElement = ref(null)
+
+const playAudio = () => {
+  if(audioElement.value) {
+    audioElement.value.play()
+  }
+}
+
+function clickFunc() {
+  addTotal()
+  showFunc()
+  playAudio()
+  vibrate()
+  calc.value -= 5
+}
 
 
 function showFunc() {
