@@ -59,7 +59,7 @@
             c-1.171-0.594-2.394-0.748-3.667-0.467c-1.291,0.269-2.356,0.909-3.2,1.921l-73.15,91.472c-0.907,1.096-1.315,2.337-1.224,3.724  
             c0.129,1.44,0.73,2.663,1.806,3.666C203.343,297.326,204.585,297.811,206.011,297.808z M266.358,132.496V112.77H245.7v19.727  
             h-19.729v20.714H245.7v19.728h20.658V153.21h19.729v-20.714H266.358z"
-             :fill="svgColor" fill-rule="evenodd"/></g><g><rect clip-rule="evenodd"
+             :fill="svgColor" fill-rule="evenodd"/></g><g><rect clip-rule="#fff"
            :fill="svgColor" fill-rule="evenodd" height="32px" width="106px"
             x="202.984" y="33.808"/></g></g></g></svg>
         </button>
@@ -92,7 +92,7 @@ const calc = ref(300);
 
 let show = ref(false)
 
-const svgColor = ref('#7155FF')
+const svgColor = ref('#9acd32')
 
 function clickFunc() {
   addTotal()
@@ -115,15 +115,19 @@ function vibrate() {
 }
 
 function addTotal() {
+  if(calc.value <= 50) {
+    svgColor.value = 'Brown'
+  } else {
+    svgColor.value = '#9acd32'
+  }
   if (calc.value >= 5) {
     total.value += 1;
     calc.value -= 5
     playAudio()
-  }
-   else {
-    console.log("hello");
-    total.value += 0;
-  }
+  } else {
+     console.log("hello");
+     total.value += 0;
+   }
   localStorage.setItem("count", total.value);
 }
 onMounted(() => {
@@ -133,6 +137,10 @@ onMounted(() => {
   setInterval(() => {
     if (calc.value !== 300 || calc.value < 300) {
        calc.value += 5;
+    }
+
+    if(calc.value >= 50) {
+      svgColor.value = '#9acd32'
     }
   }, 3000);
 });
