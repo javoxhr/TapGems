@@ -78,8 +78,8 @@ const svgColor = ref('#9acd32');
 const playAudio = () => {
   if (audioElement.value) {
     const audio = audioElement.value;
-    audio.pause(); // Останавливаем воспроизведение
-    audio.currentTime = 0; // Сбрасываем время воспроизведения
+    audio.pause();
+    audio.currentTime = 0;
     audio.play().catch(error => {
       console.error("Ошибка воспроизведения звука:", error);
     });
@@ -115,7 +115,7 @@ const addTotal = () => {
   if (calc.value >= 5) {
     total.value += 1;
     calc.value -= 5;
-    playAudio(); // Воспроизводим звук, если условие выполнено
+    playAudio();
   } else {
     console.log("hello");
   }
