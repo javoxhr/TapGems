@@ -76,71 +76,66 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-const audioElement = ref(null)
+const audioElement = ref(null);
 
 const playAudio = () => {
-  if(audioElement.value) {
-    audioElement.value.play()
-  }
-}
+  const audio = new Audio('/IMG_5651.mp3');
+  audio.play().catch(error => {
+    console.error("Ошибка воспроизведения звука:", error);
+  });
+};
 
 const total = ref(0);
 const coin = ref(0);
 const centerCoin = ref(0);
 
 const calc = ref(300);
+const show = ref(false);
+const svgColor = ref('#9acd32');
 
-let show = ref(false)
+const clickFunc = () => {
+  addTotal();
+  showFunc();
+  vibrate();
+};
 
-const svgColor = ref('#9acd32')
+const showFunc = () => {
+  show.value = !show.value;
+};
 
-function clickFunc() {
-  addTotal()
-  showFunc()
-  vibrate()
-}
-
-
-function showFunc() {
-  show.value = !show.value
-}
-
-function vibrate() {
-  if(vibrate.navigator) {
-    navigator.vibrate(200)
-    console.log('hello world')
+const vibrate = () => {
+  if (navigator.vibrate) {
+    navigator.vibrate(200);
+    console.log('hello world');
   } else {
-    console.log('Вибрация не поддерживается этим устройством.')
+    console.log('Вибрация не поддерживается этим устройством.');
   }
-}
+};
 
-function addTotal() {
-  if(calc.value <= 50) {
-    svgColor.value = 'Brown'
+const addTotal = () => {
+  if (calc.value <= 50) {
+    svgColor.value = 'Brown';
   } else {
-    svgColor.value = '#9acd32'
+    svgColor.value = '#9acd32';
   }
+  
   if (calc.value >= 5) {
     total.value += 1;
-    calc.value -= 5
-    playAudio()
+    calc.value -= 5;
+    playAudio();
   } else {
-     console.log("hello");
-     total.value += 0;
-   }
+    console.log("hello");
+  }
+  
   localStorage.setItem("count", total.value);
-}
-onMounted(() => {
-  total.value = localStorage.getItem("count")
-    ? Number(localStorage.getItem("count"))
-    : 0;
-  setInterval(() => {
-    if (calc.value !== 300 || calc.value < 300) {
-       calc.value += 5;
-    }
+};
 
-    if(calc.value >= 50) {
-      svgColor.value = '#9acd32'
+onMounted(() => {
+  total.value = localStorage.getItem("count") ? Number(localStorage.getItem("count")) : 0;
+  
+  setInterval(() => {
+    if (calc.value < 300) {
+      calc.value += 5;
     }
   }, 3000);
 });
