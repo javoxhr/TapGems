@@ -34,7 +34,8 @@
       <div class="coin-tap">
         <div class="container">
           <div class="coin-wrapper">
-            <div class="coin-rount" @click="clickFunc">
+            <div class="gems-overlay" @click="clickFunc"></div>
+            <div class="coin-rount">
               <button class="coin">
                 <img
                   class="rubiy"
