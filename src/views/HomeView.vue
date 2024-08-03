@@ -65,7 +65,7 @@
         </button>
         <h1 class="limit-text">{{ calc }}</h1>
         <h3 class="slash">/</h3>
-        <h1 class="limit-text">301</h1>
+        <h1 class="limit-text">300</h1>
       </div>
       <span>
         <span :style="{ width: calc + 'px' }"></span>
@@ -76,7 +76,6 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-const audioElement = ref(null);
 
 const playAudio = () => {
   const audio = new Audio('/IMG_5651.mp3');
