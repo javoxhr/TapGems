@@ -68,25 +68,23 @@
 import { ref, onMounted } from 'vue';
 
 const audioElement = ref(null);
-
-const playAudio = () => {
-  if (audioElement.value) {
-    const audio = audioElement.value;
-    audio.pause();
-    audio.currentTime = 0;
-    audio.play().catch(error => {
-      console.error("Ошибка воспроизведения звука:", error);
-    });
-  }
-};
-
-
 const total = ref(0);
 const coin = ref(0);
 const centerCoin = ref(0);
 const calc = ref(300);
 const show = ref(false);
 const svgColor = ref('#9acd32');
+
+const playAudio = () => {
+  if (audioElement.value) {
+    const audio = audioElement.value;
+    audio.pause(); // Останавливаем воспроизведение
+    audio.currentTime = 0; // Сбрасываем время воспроизведения
+    audio.play().catch(error => {
+      console.error("Ошибка воспроизведения звука:", error);
+    });
+  }
+};
 
 const clickFunc = () => {
   addTotal();
@@ -117,7 +115,7 @@ const addTotal = () => {
   if (calc.value >= 5) {
     total.value += 1;
     calc.value -= 5;
-    playAudio();
+    playAudio(); // Воспроизводим звук, если условие выполнено
   } else {
     console.log("hello");
   }
