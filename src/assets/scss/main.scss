@@ -165,7 +165,8 @@ top {
     position: relative;
     transition: all .2s ease;
     &:active {
-        transform: rotateX(50deg);
+        transform: rotate(10deg);
+        background: rgba(77, 3, 163, 0.422);
     }
     .gems-overlay {
         width: 150px;

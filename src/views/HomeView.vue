@@ -191,7 +191,7 @@ onMounted(() => {
   width: 180px;
 }
 .limit-text {
-  font-weight: 400;
+  font-weight: 600;
   font-size: 16px;
 }
 .slash {
