@@ -65,7 +65,7 @@
         </button>
         <h1 class="limit-text">{{ calc }}</h1>
         <h3 class="slash">/</h3>
-        <h1 class="limit-text">302</h1>
+        <h1 class="limit-text">300</h1>
       </div>
       <span>
         <span :style="{ width: calc + 'px' }"></span>
@@ -76,65 +76,71 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
+const audioElement = ref(null)
 
 const playAudio = () => {
-  const audio = new Audio('/IMG_5651.mp3'); // Убедитесь, что путь правильный
-  audio.play().catch(error => {
-    console.error("Ошибка воспроизведения звука:", error);
-  });
-};
+  if(audioElement.value) {
+    audioElement.value.play()
+  }
+}
 
 const total = ref(0);
 const coin = ref(0);
 const centerCoin = ref(0);
 
 const calc = ref(300);
-const show = ref(false);
-const svgColor = ref('#9acd32');
 
-const clickFunc = () => {
-  addTotal();
-  showFunc();
-  vibrate();
-};
+let show = ref(false)
 
-const showFunc = () => {
-  show.value = !show.value;
-};
+const svgColor = ref('#9acd32')
 
-const vibrate = () => {
-  if (navigator.vibrate) {
-    navigator.vibrate(200);
-    console.log('hello world');
+function clickFunc() {
+  addTotal()
+  showFunc()
+  vibrate()
+}
+
+
+function showFunc() {
+  show.value = !show.value
+}
+
+function vibrate() {
+  if(vibrate.navigator) {
+    navigator.vibrate(200)
+    console.log('hello world')
   } else {
-    console.log('Вибрация не поддерживается этим устройством.');
+    console.log('Вибрация не поддерживается этим устройством.')
   }
-};
+}
 
-const addTotal = () => {
-  if (calc.value <= 50) {
-    svgColor.value = 'Brown';
+function addTotal() {
+  if(calc.value <= 50) {
+    svgColor.value = 'Brown'
   } else {
-    svgColor.value = '#9acd32';
+    svgColor.value = '#9acd32'
   }
-  
   if (calc.value >= 5) {
     total.value += 1;
-    calc.value -= 5;
-    playAudio();
+    calc.value -= 5
+    playAudio()
   } else {
-    console.log("hello");
-  }
-  
+     console.log("hello");
+     total.value += 0;
+   }
   localStorage.setItem("count", total.value);
-};
-
+}
 onMounted(() => {
-  total.value = localStorage.getItem("count") ? Number(localStorage.getItem("count")) : 0;
-  
+  total.value = localStorage.getItem("count")
+    ? Number(localStorage.getItem("count"))
+    : 0;
   setInterval(() => {
-    if (calc.value < 300) {
-      calc.value += 5;
+    if (calc.value !== 300 || calc.value < 300) {
+       calc.value += 5;
+    }
+
+    if(calc.value >= 50) {
+      svgColor.value = '#9acd32'
     }
   }, 3000);
 });
