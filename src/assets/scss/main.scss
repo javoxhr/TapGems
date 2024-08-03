@@ -164,10 +164,6 @@ top {
     justify-content: center;
     position: relative;
     transition: all .2s ease;
-    &:hover {
-        transform: rotate(10deg);
-        background: rgba(77, 3, 163, 0.422);
-    }
     .gems-overlay {
         width: 150px;
         height: 150px;
@@ -242,6 +238,22 @@ top {
     flex-direction: column;
     justify-content: space-between;
     align-items: center
+}
+
+.active-coin {
+    animation: active .4s forwards;
+}
+
+@keyframes active {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(30deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
 }
 
 @import "./loader";

@@ -36,7 +36,7 @@
           <div class="coin-wrapper">
             <div class="gems-overlay" @click="clickFunc"></div>
             <div class="coin-rount">
-              <button class="coin">
+              <button class="coin" :class="{'active-coin': activeCoin}">
                 <img
                   class="rubiy"
                   src="../assets/images/rubiy-coin.png"
@@ -126,6 +126,8 @@ let show = ref(false);
 
 const svgColor = ref("#9acd32");
 
+const activeCoin = ref(false)
+
 function clickFunc() {
   addTotal();
   showFunc();
@@ -154,6 +156,10 @@ function addTotal() {
   if (calc.value >= 5) {
     total.value += 1;
     calc.value -= 5;
+    activeCoin.value = true
+    setTimeout(()=> {
+      activeCoin.value = false
+    }, 100)
   } else {
     console.log("hello");
     total.value += 0;
