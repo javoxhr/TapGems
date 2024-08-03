@@ -78,7 +78,7 @@
 import { ref, onMounted } from "vue";
 
 const playAudio = () => {
-  const audio = new Audio('/assets/sounds/IMG_5651.mp3'); // Убедитесь, что путь правильный
+  const audio = new Audio('/IMG_5651.mp3'); // Убедитесь, что путь правильный
   audio.play().catch(error => {
     console.error("Ошибка воспроизведения звука:", error);
   });
