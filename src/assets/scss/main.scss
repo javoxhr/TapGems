@@ -222,4 +222,12 @@ top {
     align-items: center;
 }
 
+.main-wrapper {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center
+}
+
 @import "./loader";

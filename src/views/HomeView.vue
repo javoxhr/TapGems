@@ -1,7 +1,7 @@
 
 <template>
   <div class="overlay"></div>
-  <div class="loader" :style="{'display': show == true ? 'none' : 'none'}">
+  <div class="loader" :style="{ display: show == true ? 'none' : 'none' }">
     <span class="loading"></span>
     <span class="loading"></span>
     <span class="loading"></span>
@@ -13,38 +13,62 @@
       <h1 class="gems">💎</h1>
     </div>
 
-    <top>
-      <div class="container">
-        <div class="header-wrapper">
-          <h1 class="header-wrapper__balans" :class="{'after-balans': show == true}"  >
-            <span class="total">{{ total }}</span>
-            <span class="zap">.</span>
-            <span>{{ centerCoin }}</span>
-            <span class="cash">{{ coin }}</span>
-            G
-          </h1>
+    <div class="main-wrapper">
+      <top>
+        <div class="container">
+          <div class="header-wrapper">
+            <h1
+              class="header-wrapper__balans"
+              :class="{ 'after-balans': show == true }"
+            >
+              <span class="total">{{ total }}</span>
+              <span class="zap">.</span>
+              <span>{{ centerCoin }}</span>
+              <span class="cash">{{ coin }}</span>
+              G
+            </h1>
+          </div>
         </div>
-      </div>
-    </top>
+      </top>
 
-    <div class="coin-tap">
-      <div class="container">
-        <div class="coin-wrapper">
-          <div class="coin-rount" @click="clickFunc">
-            <button class="coin">
-              <img class="rubiy" src="../assets/images/rubiy-coin.png" alt="">
-            </button>
+      <div class="coin-tap">
+        <div class="container">
+          <div class="coin-wrapper">
+            <div class="coin-rount" @click="clickFunc">
+              <button class="coin">
+                <img
+                  class="rubiy"
+                  src="../assets/images/rubiy-coin.png"
+                  alt=""
+                />
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="limit">
-      <div class="limit-wrap">
-        <button class="energiya">
-          <!-- <img src="../assets/images/energiy.svg" alt="" /> -->
-         <!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
-         <svg enable-background="new 0 0 512 512" height="512px" id="Слой_1" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><g><g><path clip-rule="evenodd" d="M336.949,83.675c0.35,0.002,0.697,0.002,1.048,0h1.048    
+      <div class="limit">
+        <div class="limit-wrap">
+          <button class="energiya">
+            <!-- <img src="../assets/images/energiy.svg" alt="" /> -->
+            <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+            <svg
+              enable-background="new 0 0 512 512"
+              height="512px"
+              id="Слой_1"
+              version="1.1"
+              viewBox="0 0 512 512"
+              width="512px"
+              xml:space="preserve"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <g>
+                <g>
+                  <g>
+                    <path
+                      clip-rule="evenodd"
+                      d="M336.949,83.675c0.35,0.002,0.697,0.002,1.048,0h1.048    
             c0.455,0.011,0.9,0.029,1.339,0.059c7.456,0.473,13.878,3.421,19.262,8.844c5.953,5.948,8.94,13.125,8.963,21.53v332.837    
               c-0.005,0.471-0.025,0.937-0.059,1.396c-0.321,7.806-3.287,14.518-8.904,20.134c-5.577,5.644-12.249,8.633-20.019,8.96    
               c-0.443,0.036-0.889,0.055-1.339,0.06H173.654c-0.412-0.005-0.818-0.023-1.222-0.06c-7.817-0.315-14.528-3.303-20.136-8.96     
@@ -57,17 +81,33 @@
             c-1.171-0.594-2.394-0.748-3.667-0.467c-1.291,0.269-2.356,0.909-3.2,1.921l-73.15,91.472c-0.907,1.096-1.315,2.337-1.224,3.724  
             c0.129,1.44,0.73,2.663,1.806,3.666C203.343,297.326,204.585,297.811,206.011,297.808z M266.358,132.496V112.77H245.7v19.727  
             h-19.729v20.714H245.7v19.728h20.658V153.21h19.729v-20.714H266.358z"
-             :fill="svgColor" fill-rule="evenodd"/></g><g><rect clip-rule="#fff"
-           :fill="svgColor" fill-rule="evenodd" height="32px" width="106px"
-            x="202.984" y="33.808"/></g></g></g></svg>
-        </button>
-        <h1 class="limit-text">{{ calc }}</h1>
-        <h3 class="slash">/</h3>
-        <h1 class="limit-text">300</h1>
+                      :fill="svgColor"
+                      fill-rule="evenodd"
+                    />
+                  </g>
+                  <g>
+                    <rect
+                      clip-rule="#fff"
+                      :fill="svgColor"
+                      fill-rule="evenodd"
+                      height="32px"
+                      width="106px"
+                      x="202.984"
+                      y="33.808"
+                    />
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </button>
+          <h1 class="limit-text">{{ calc }}</h1>
+          <h3 class="slash">/</h3>
+          <h1 class="limit-text">300</h1>
+        </div>
+        <span>
+          <span :style="{ width: calc + 'px' }"></span>
+        </span>
       </div>
-      <span>
-        <span :style="{ width: calc + 'px' }"></span>
-      </span>
     </div>
   </main>
 </template>
@@ -81,43 +121,42 @@ const centerCoin = ref(0);
 
 const calc = ref(300);
 
-let show = ref(false)
+let show = ref(false);
 
-const svgColor = ref('#9acd32')
+const svgColor = ref("#9acd32");
 
 function clickFunc() {
-  addTotal()
-  showFunc()
-  vibrate()
+  addTotal();
+  showFunc();
+  vibrate();
 }
 
-
 function showFunc() {
-  show.value = !show.value
+  show.value = !show.value;
 }
 
 function vibrate() {
-  if(vibrate.navigator) {
-    navigator.vibrate(200)
-    console.log('hello world')
+  if (vibrate.navigator) {
+    navigator.vibrate(200);
+    console.log("hello world");
   } else {
-    console.log('Вибрация не поддерживается этим устройством.')
+    console.log("Вибрация не поддерживается этим устройством.");
   }
 }
 
 function addTotal() {
-  if(calc.value <= 50) {
-    svgColor.value = 'Brown'
+  if (calc.value <= 50) {
+    svgColor.value = "Brown";
   } else {
-    svgColor.value = '#9acd32'
+    svgColor.value = "#9acd32";
   }
   if (calc.value >= 5) {
     total.value += 1;
-    calc.value -= 5
+    calc.value -= 5;
   } else {
-     console.log("hello");
-     total.value += 0;
-   }
+    console.log("hello");
+    total.value += 0;
+  }
   localStorage.setItem("count", total.value);
 }
 onMounted(() => {
@@ -126,11 +165,11 @@ onMounted(() => {
     : 0;
   setInterval(() => {
     if (calc.value !== 300 || calc.value < 300) {
-       calc.value += 5;
+      calc.value += 5;
     }
 
-    if(calc.value >= 50) {
-      svgColor.value = '#9acd32'
+    if (calc.value >= 50) {
+      svgColor.value = "#9acd32";
     }
   }, 3000);
 });
