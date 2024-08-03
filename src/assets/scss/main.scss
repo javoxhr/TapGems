@@ -241,7 +241,7 @@ top {
 }
 
 .active-coin {
-    animation: active .4s forwards;
+    animation: active .3s forwards;
 }
 
 @keyframes active {
@@ -249,7 +249,7 @@ top {
         transform: rotate(0deg);
     }
     50% {
-        transform: rotate(30deg);
+        transform: rotate(20deg);
     }
     100% {
         transform: rotate(0deg);
