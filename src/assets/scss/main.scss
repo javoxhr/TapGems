@@ -164,7 +164,7 @@ top {
     justify-content: center;
     position: relative;
     transition: all .2s ease;
-    &:active {
+    &:hover {
         transform: rotate(10deg);
         background: rgba(77, 3, 163, 0.422);
     }
