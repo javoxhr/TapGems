@@ -105,7 +105,7 @@ body {
     &__balans {
         color: var(--text-color);
         cursor: pointer;
-        font-weight: 400;
+        font-weight: 700;
         font-size: 50px;
         display: flex;
         align-items: center;
@@ -193,9 +193,8 @@ top {
     margin-top: -50px;
     span {
         width: 300px;
-        height: 20px;
-        border: 1px solid #fff;
-        border-radius: 10px;
+        height: 25px;
+        background: #fff;
         display: flex;
         align-items: center;
         span {

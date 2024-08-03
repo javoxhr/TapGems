@@ -31,9 +31,6 @@
       <div class="container">
         <div class="coin-wrapper">
           <div class="coin-rount" @click="clickFunc">
-            <audio ref="audioElement">
-              <source src="/IMG_5651.mp3" type="audio/mpeg">
-            </audio>
             <button class="coin">
               <img class="rubiy" src="../assets/images/rubiy-coin.png" alt="">
             </button>
@@ -77,13 +74,6 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-const audioElement = ref(null)
-
-const playAudio = () => {
-  if(audioElement.value) {
-    audioElement.value.play()
-  }
-}
 
 const total = ref(0);
 const coin = ref(0);
@@ -124,7 +114,6 @@ function addTotal() {
   if (calc.value >= 5) {
     total.value += 1;
     calc.value -= 5
-    playAudio()
   } else {
      console.log("hello");
      total.value += 0;
